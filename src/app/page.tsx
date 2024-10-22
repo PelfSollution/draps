@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { sendEmail } from './actions'
 import Link from "next/link"
 import { Facebook, Instagram, Menu, Scissors, Globe, Home as HomeIcon, PenTool, Phone, Mail, MapPin, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -31,7 +32,14 @@ const categories = [
 ]
 
 export default function HomePage() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const [formStatus, setFormStatus] = useState<{ success?: boolean; message?: string } | null>(null)
+  
+    const handleSubmit = async (formData: FormData) => {
+      const result = await sendEmail(formData)
+      setFormStatus(result)
+    }
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -147,27 +155,32 @@ export default function HomePage() {
               </div>
               <div>
                 <h2 className="text-3xl font-bold mb-6">Formulari de contacte</h2>
-                <form className="space-y-4">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                      Nom / Cognom
-                    </label>
-                    <Input id="name" type="text" placeholder="El teu nom" />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                      E-mail
-                    </label>
-                    <Input id="email" type="email" placeholder="El teu email" />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                      Consulta a fer
-                    </label>
-                    <Textarea id="message" placeholder="La teva consulta" rows={4} />
-                  </div>
-                  <Button type="submit" className="w-full">Enviar</Button>
-                </form>
+                <form action={handleSubmit} className="space-y-4">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                  Nom / Cognom
+                </label>
+                <Input id="name" name="name" type="text" placeholder="El teu nom" required />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  E-mail
+                </label>
+                <Input id="email" name="email" type="email" placeholder="El teu email" required />
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                  Consulta a fer
+                </label>
+                <Textarea id="message" name="message" placeholder="La teva consulta" rows={4} required />
+              </div>
+              <Button type="submit" className="w-full">Enviar</Button>
+            </form>
+            {formStatus && (
+              <div className={`mt-4 p-4 rounded ${formStatus.success ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                {formStatus.message}
+                </div>
+              )}
               </div>
             </div>
             <div className="mt-12">
