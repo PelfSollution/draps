@@ -77,7 +77,7 @@ export default function HomePage() {
               <img src="/img-draps.png" alt="Ilustración de costura" className="mx-auto mb-6 rounded-full" />
               <h2 className="text-3xl font-bold mb-4">Roba i Teles a metres</h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                Més de 30 anys venent teles i teixits a la Bisbal d'Empordà (Girona). A DRAPS pots
+                Més de 40 anys venent teles i teixits a la Bisbal d'Empordà (Girona). A DRAPS pots
                 comprar teles a metres de tot tipus de teixits: bàsics, vestits, carnaval, llar, patchwork,
                 senyores, estelades...
               </p>
