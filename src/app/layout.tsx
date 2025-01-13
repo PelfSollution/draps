@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   robots: 'index, follow',
   alternates: {
     canonical: 'https://draps.cat'
+  },
+  icons: {
+    icon: '/favicon.ico'
   }
 }
 

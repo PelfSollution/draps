@@ -78,8 +78,8 @@ export default function HomePage() {
           </Link>
           <nav className="flex gap-6">
             {[
-              ['Qui Som', '#sobre-nosotros'],
-              ['Contacte', '#contacto']
+              ['Qui Som', '#qui-som'],
+              ['Contacte', '#contacte']
             ].map(([label, href]) => (
               <a 
                 key={href}
@@ -105,7 +105,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="sobre-nosotros" className="py-16 bg-gray-50">
+        <section id="qui-som" className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <img src="/img-draps.png" alt="Ilustración de costura" className="mx-auto mb-6 rounded-full" />
@@ -143,7 +143,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="contacto" className="py-16 bg-white">
+        <section id="contacte" className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <div>
