@@ -7,6 +7,7 @@ import { Facebook, Instagram, Scissors, Globe, Home as HomeIcon, PenTool, Phone,
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import Image from 'next/image'
 
 const categories = [
   {
@@ -67,17 +68,39 @@ export default function HomePage() {
       <header style={{ backgroundColor: '#30bc9c' }} className="shadow-sm sticky top-0 z-10">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <Link href="/">
-            <img src="/logo-draps.png" alt="Logo DRAPS" className="h-10" />
+            <Image 
+              src="/logo-draps.png" 
+              alt="Logo DRAPS"
+              width={120} 
+              height={40}
+              priority
+            />
           </Link>
+          <nav className="flex gap-6">
+            {[
+              ['Qui Som', '#sobre-nosotros'],
+              ['Contacte', '#contacto']
+            ].map(([label, href]) => (
+              <a 
+                key={href}
+                href={href}
+                className="text-white hover:text-teal-100 transition-colors"
+              >
+                {label}
+              </a>
+            ))}
+          </nav>
         </div>
       </header>
 
       <main className="flex-grow">
         <section id="inicio" className="relative h-[70vh] bg-cover bg-center" style={{backgroundImage: "url('/img-draps-2.png?height=700&width=1200')"}}>
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <div className="text-center text-white">
-              <h1 className="text-4xl md:text-6xl font-bold mb-4">Roba i Teles a metres</h1>
-              <p className="text-xl md:text-2xl mb-8">La Bisbal d'Empordà</p>
+            <div className="text-center px-4">
+              <div className="border border-white/50 px-6 md:px-12 py-6 md:py-8 rounded-lg backdrop-blur-sm">
+                <h1 className="text-white text-3xl sm:text-4xl md:text-7xl font-bold mb-2 md:mb-4">Roba i Teles a metres</h1>
+                <p className="text-white text-xl sm:text-2xl md:text-3xl">La Bisbal d'Empordà</p>
+              </div>
             </div>
           </div>
         </section>
@@ -93,12 +116,17 @@ export default function HomePage() {
                 senyores, estelades...
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {categories.map((category, index) => (
-                <div key={index} className="bg-white p-6 rounded-lg shadow-md">
-                  <div className="flex items-center mb-4">
-                    {category.icon}
-                    <h3 className="text-xl font-semibold ml-4">{category.title}</h3>
+                <div 
+                  key={index} 
+                  className="group bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300"
+                >
+                  <div className="flex flex-col items-center text-center mb-4">
+                    <div className="mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                      {category.icon}
+                    </div>
+                    <h3 className="text-xl font-semibold">{category.title}</h3>
                   </div>
                   <p className="text-gray-600">{category.description}</p>
                 </div>
@@ -109,7 +137,9 @@ export default function HomePage() {
 
         <section className="relative bg-cover bg-center h-[50vh]" style={{ backgroundImage: "url('/foto-bisbal.jpg')" }}>
           <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-            <h2 className="text-white text-3xl font-bold">La Bisbal d'Empordà</h2>
+            <div className="border border-white/50 px-6 md:px-12 py-6 md:py-8 rounded-lg backdrop-blur-sm mx-4">
+              <h2 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold">La Bisbal d'Empordà</h2>
+            </div>
           </div>
         </section>
 
@@ -201,7 +231,7 @@ export default function HomePage() {
       </main>
 
       <footer className="bg-white text-center py-8">
-        <p className="text-gray-600 text-2xl font-medium">We ❤️ Tall i Confecció</p>
+        <p className="text-gray-600 text-3xl sm:text-4xl md:text-7xl font-bold">We ❤️ Tall i Confecció</p>
       </footer>
     </div>
   )
