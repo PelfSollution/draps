@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   keywords: 'teles, teixits, roba a metres, La Bisbal d\'Empordà, botiga de teles, patchwork, decoració',
   openGraph: {
     title: 'DRAPS - Teles i Roba a metres',
-    description: 'Especialistes en teixits des de fa 40 anys a La Bisbal d\'Empordà',
+    description: 'Especialistes en teixits des de fa 40 anys a La Bisbal d\'Empordà (Girona)',
     images: ['/img-draps.png'],
   },
   robots: 'index, follow',
@@ -19,7 +19,9 @@ export const metadata: Metadata = {
     canonical: 'https://draps.cat'
   },
   icons: {
-    icon: '/favicon.ico'
+    icon: '/app/favicon.ico',
+    shortcut: '/app/favicon.ico',
+    apple: '/app/favicon.ico',
   }
 }
 
@@ -30,6 +32,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ca">
+      <head>
+        <link rel="icon" href="/app/favicon.ico" />
+        <link rel="shortcut icon" href="/app/favicon.ico" />
+        <link rel="apple-touch-icon" href="/app/favicon.ico" />
+      </head>
       <body className={inter.className}>
         {children}
         <Script

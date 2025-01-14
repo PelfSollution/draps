@@ -20,12 +20,12 @@ const categories = [
   {
     icon: <GiSewingMachine className="w-12 h-12 text-teal-500" />,
     title: "VESTIR I BÀSICS",
-    description: "A DRAPS es pot trobar tot tipus de teixits de diferents qualitats i en una extensa gamma de colors per confeccionar tot tipus de peces de roba (punt, infantil, llanes, quadres escocesos, entreteles, vichy, folre...)."
+    description: "A DRAPS es pot trobar tota mena de teixits de diferents qualitats i en una extensa gamma de colors per confeccionar tota classe de peces de roba (punt, infantil, llanes, quadres escocesos, entreteles, vichy, folre...)."
   },
   {
     icon: <GiDramaMasks className="w-12 h-12 text-teal-500" />,
     title: "CARNAVAL, ESPECTACLES I FANTASIES",
-    description: "Els teixits per carnaval i espectacles són una altra de les nostres especialitats (bàsics, fantasia, flamencas, blondes, tuls, malles, pèl, estampats...)."
+    description: "Els teixits per carnaval i espectacles són una altra de les nostres especialitats (bàsics, fantasia, flamenques, blondes, tuls, malles, pèl, estampats...)."
   },
   {
     icon: <GiSofa className="w-12 h-12 text-teal-500" />,
@@ -35,7 +35,7 @@ const categories = [
   {
     icon: <GiSewingString className="w-12 h-12 text-teal-500" />,
     title: "MANUALITATS",
-    description: "Teixits de cotó especials i Fliselina per fer manualitats de Patchwork, tela rústica (saca, arpillera), panamà per bordar amb punt de creu, buata, feltre..."
+    description: "Teixits de cotó especials i Fliselina per fer manualitats de Patchwork, tela rústica (saca, arpillera), panamà per brodar amb punt de creu, buata, feltre..."
   }
 ]
 
@@ -115,9 +115,7 @@ export default function HomePage() {
               <img src="/img-draps.png" alt="Ilustración de costura" className="mx-auto mb-6 rounded-full" />
             
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                Més de 40 anys venent teles i teixits a la Bisbal d'Empordà (Girona). A DRAPS pots
-                comprar teles a metres de tot tipus de teixits: bàsics, vestits, carnaval, llar, patchwork,
-                senyores, estelades...
+              Més de 40 anys venent <strong>teles i teixits</strong> a la Bisbal d'Empordà (<strong>Girona</strong>). A <strong>DRAPS</strong> pots comprar teles a metres de tota mena de teixits: <i>bàsics, vestits, carnaval, llar, patchwork, senyeres, estelades...</i>
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
