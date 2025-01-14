@@ -3,36 +3,40 @@
 import { useState } from 'react'
 import { sendEmail } from './actions'
 import Link from "next/link"
-import { Facebook, Instagram, Scissors, Globe, Home as HomeIcon, PenTool, Phone, Mail, MapPin, Clock } from "lucide-react"
+import { 
+  GiSewingMachine,
+  GiDramaMasks,
+  GiSofa,
+  GiSewingString 
+} from 'react-icons/gi'
+import { Facebook, Instagram, Phone, Mail, MapPin, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import Image from 'next/image'
+import { FaHeart } from 'react-icons/fa'
 
 const categories = [
   {
-    icon: <Scissors className="w-12 h-12 text-teal-500" />,
+    icon: <GiSewingMachine className="w-12 h-12 text-teal-500" />,
     title: "VESTIR I BÀSICS",
     description: "A DRAPS es pot trobar tot tipus de teixits de diferents qualitats i en una extensa gamma de colors per confeccionar tot tipus de peces de roba (punt, infantil, llanes, quadres escocesos, entreteles, vichy, folre...)."
   },
   {
-    icon: <Globe className="w-12 h-12 text-teal-500" />,
+    icon: <GiDramaMasks className="w-12 h-12 text-teal-500" />,
     title: "CARNAVAL, ESPECTACLES I FANTASIES",
     description: "Els teixits per carnaval i espectacles són una altra de les nostres especialitats (bàsics, fantasia, flamencas, blondes, tuls, malles, pèl, estampats...)."
   },
   {
-    icon: <HomeIcon className="w-12 h-12 text-teal-500" />,
+    icon: <GiSofa className="w-12 h-12 text-teal-500" />,
     title: "LLAR I DECORACIÓ",
     description: "Teixits per la llar i decoracions (teles per la llar, lonetes per fundes de sofà i coixins...)."
   },
   {
-    icon: <PenTool className="w-12 h-12 text-teal-500" />,
+    icon: <GiSewingString className="w-12 h-12 text-teal-500" />,
     title: "MANUALITATS",
     description: "Teixits de cotó especials i Fliselina per fer manualitats de Patchwork, tela rústica (saca, arpillera), panamà per bordar amb punt de creu, buata, feltre..."
   }
-
-  
-
 ]
 
 // quiero un array de objetos con 5 usuarios distintos con el nombre del usuario, el email y la foto de perfil
@@ -231,7 +235,9 @@ export default function HomePage() {
       </main>
 
       <footer className="bg-white text-center py-8">
-        <p className="text-gray-600 text-3xl sm:text-4xl md:text-7xl font-bold">We ❤️ Tall i Confecció</p>
+        <p className="text-gray-600 text-3xl sm:text-4xl md:text-7xl font-bold flex items-center justify-center gap-4">
+          Estimem <FaHeart className="text-red-500 animate-pulse" /> Tall i Confecció
+        </p>
       </footer>
     </div>
   )
