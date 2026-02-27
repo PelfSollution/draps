@@ -76,18 +76,18 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <header style={{ backgroundColor: '#30bc9c' }} className="shadow-sm sticky top-0 z-10">
+      <header style={{ backgroundColor: '#30bc9c' }} className="shadow-sm sticky top-0 z-10" role="banner">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Link href="/">
+          <Link href="/" aria-label="DRAPS - Pàgina principal">
             <Image
               src="/logo-draps.png"
-              alt="Logo DRAPS"
+              alt="DRAPS - Botiga de teles i teixits a La Bisbal d'Empordà"
               width={120}
               height={40}
               priority
             />
           </Link>
-          <nav className="flex gap-6">
+          <nav aria-label="Navegació principal" className="flex gap-6">
             {[
               ['Qui Som', '#qui-som'],
               ['Contacte', '#contacte']
@@ -105,24 +105,31 @@ export default function HomePage() {
       </header>
 
       <main className="flex-grow">
-        <section id="inicio" className="relative h-[70vh] bg-cover bg-center" style={{ backgroundImage: "url('/img-draps-2.png?height=700&width=1200')" }}>
+        <section id="inicio" aria-label="Presentació de DRAPS" className="relative h-[70vh] bg-cover bg-center" style={{ backgroundImage: "url('/img-draps-2.png?height=700&width=1200')" }}>
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <div className="text-center px-4">
               <div className="border border-white/50 px-6 md:px-12 py-6 md:py-8 rounded-lg backdrop-blur-sm">
                 <h1 className="text-white text-3xl sm:text-4xl md:text-7xl font-bold mb-2 md:mb-4">Roba i Teles a metres</h1>
-                <p className="text-white text-xl sm:text-2xl md:text-3xl">La Bisbal d'Empordà</p>
+                <p className="text-white text-xl sm:text-2xl md:text-3xl">La Bisbal d&#39;Empordà</p>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="qui-som" className="py-16 bg-gray-50">
+        <section id="qui-som" aria-label="Qui som - Sobre DRAPS" className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <img src="/img-draps.png" alt="Ilustración de costura" className="mx-auto mb-6 rounded-full" />
+              <h2 className="sr-only">Qui som</h2>
+              <Image
+                src="/img-draps.png"
+                alt="Il·lustració de costura i confecció - DRAPS botiga de teles"
+                width={200}
+                height={200}
+                className="mx-auto mb-6 rounded-full"
+              />
 
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                Més de 40 anys venent <strong>teles i teixits</strong> a la Bisbal d'Empordà (<strong>Girona</strong>). A <strong>DRAPS</strong> pots comprar teles a metres de tota mena de teixits: <i>bàsics, vestits, carnaval, llar, patchwork, senyeres, estelades...</i>
+                Més de 40 anys venent <strong>teles i teixits</strong> a la Bisbal d&#39;Empordà (<strong>Girona</strong>). A <strong>DRAPS</strong> pots comprar teles a metres de tota mena de teixits: <em>bàsics, vestits, carnaval, llar, patchwork, senyeres, estelades...</em>
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -144,15 +151,15 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="relative bg-cover bg-center h-[50vh]" style={{ backgroundImage: "url('/foto-bisbal.jpg')" }}>
+        <section aria-label="La Bisbal d'Empordà" className="relative bg-cover bg-center h-[50vh]" style={{ backgroundImage: "url('/foto-bisbal.jpg')" }}>
           <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
             <div className="border border-white/50 px-6 md:px-12 py-6 md:py-8 rounded-lg backdrop-blur-sm mx-4">
-              <h2 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold">La Bisbal d'Empordà</h2>
+              <h2 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold">La Bisbal d&#39;Empordà</h2>
             </div>
           </div>
         </section>
 
-        <section id="contacte" className="py-16 bg-white">
+        <section id="contacte" aria-label="Contacte i formulari" className="py-16 bg-white">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <div>
@@ -226,12 +233,14 @@ export default function HomePage() {
               <h3 className="text-xl font-semibold mb-4">On ens podeu trobar?</h3>
               <div className="aspect-w-16 aspect-h-9">
                 <iframe
+                  title="Mapa de la ubicació de DRAPS a La Bisbal d'Empordà"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2987.946176746024!2d3.0374373!3d41.9592097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12bae0b9a4f9c1b7%3A0x6f0d45d9b8b9b9b9!2sCarrer%20Cavallers%2C%2012%2C%2017100%20La%20Bisbal%20d'Empord%C3%A0%2C%20Girona!5e0!3m2!1sen!2ses!4v1635789012345!5m2!1sen!2ses"
                   width="100%"
                   height="450"
                   style={{ border: 0 }}
                   allowFullScreen={true}
                   loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
               </div>
             </div>
@@ -239,10 +248,11 @@ export default function HomePage() {
         </section>
       </main>
 
-      <footer className="bg-white text-center py-8">
+      <footer className="bg-white text-center py-8" role="contentinfo">
         <p className="text-gray-600 text-3xl sm:text-4xl md:text-7xl font-bold flex items-center justify-center gap-4">
-          Estimem <FaHeart className="text-red-500 animate-pulse" /> Tall i Confecció
+          Estimem <FaHeart className="text-red-500 animate-pulse" aria-label="cor" /> Tall i Confecció
         </p>
+        <p className="text-gray-400 text-sm mt-4">© {new Date().getFullYear()} DRAPS - Teles i Teixits. Tots els drets reservats.</p>
       </footer>
     </div>
   )
