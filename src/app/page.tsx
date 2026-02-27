@@ -1,13 +1,12 @@
 'use client'
 
-import { useState } from 'react'
-import { sendEmail } from './actions'
+import { useState, useRef } from 'react'
 import Link from "next/link"
-import { 
+import {
   GiSewingMachine,
   GiDramaMasks,
   GiSofa,
-  GiSewingString 
+  GiSewingString
 } from 'react-icons/gi'
 import { Facebook, Instagram, Phone, Mail, MapPin, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -39,20 +38,7 @@ const categories = [
   }
 ]
 
-// quiero un array de objetos con 5 usuarios distintos con el nombre del usuario, el email y la foto de perfil
 
-const MOCK_USER_PROFILES = [
-  {
-    name: "John Doe",
-    email: "john.doe@example.com",
-    profilePicture: "https://via.placeholder.com/150"
-  },
-  {
-    name: "Jane Doe",
-    email: "jane.doe@example.com",
-    profilePicture: "https://via.placeholder.com/150"
-  }
-] 
 
 
 
@@ -60,22 +46,43 @@ const MOCK_USER_PROFILES = [
 
 export default function HomePage() {
 
-    const [formStatus, setFormStatus] = useState<{ success?: boolean; message?: string } | null>(null)
+  const [formStatus, setFormStatus] = useState<{ success?: boolean; message?: string } | null>(null)
+  const formRef = useRef<HTMLFormElement>(null)
 
-    const handleSubmit = async (formData: FormData) => {
-      const result = await sendEmail(formData)
-      setFormStatus(result)
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setFormStatus({ message: 'Enviant...' })
+    const formData = new FormData(e.currentTarget)
+    formData.append('access_key', '55a8a0c8-3d10-4cc7-9ed2-eba0db285e23')
+    formData.append('subject', `Nou missatge de ${formData.get('name')} - DRAPS`)
+    formData.append('from_name', 'DRAPS Web')
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      })
+      const data = await response.json()
+      if (data.success) {
+        setFormStatus({ success: true, message: 'Correu enviat correctament!' })
+        formRef.current?.reset()
+      } else {
+        setFormStatus({ success: false, message: 'Error al enviar el correu. Torna-ho a provar.' })
+      }
+    } catch {
+      setFormStatus({ success: false, message: 'Error al enviar el correu. Torna-ho a provar.' })
     }
+  }
 
   return (
     <div className="flex flex-col min-h-screen">
       <header style={{ backgroundColor: '#30bc9c' }} className="shadow-sm sticky top-0 z-10">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <Link href="/">
-            <Image 
-              src="/logo-draps.png" 
+            <Image
+              src="/logo-draps.png"
               alt="Logo DRAPS"
-              width={120} 
+              width={120}
               height={40}
               priority
             />
@@ -85,7 +92,7 @@ export default function HomePage() {
               ['Qui Som', '#qui-som'],
               ['Contacte', '#contacte']
             ].map(([label, href]) => (
-              <a 
+              <a
                 key={href}
                 href={href}
                 className="text-white hover:text-teal-100 transition-colors"
@@ -98,7 +105,7 @@ export default function HomePage() {
       </header>
 
       <main className="flex-grow">
-        <section id="inicio" className="relative h-[70vh] bg-cover bg-center" style={{backgroundImage: "url('/img-draps-2.png?height=700&width=1200')"}}>
+        <section id="inicio" className="relative h-[70vh] bg-cover bg-center" style={{ backgroundImage: "url('/img-draps-2.png?height=700&width=1200')" }}>
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <div className="text-center px-4">
               <div className="border border-white/50 px-6 md:px-12 py-6 md:py-8 rounded-lg backdrop-blur-sm">
@@ -113,15 +120,15 @@ export default function HomePage() {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <img src="/img-draps.png" alt="Ilustración de costura" className="mx-auto mb-6 rounded-full" />
-            
+
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Més de 40 anys venent <strong>teles i teixits</strong> a la Bisbal d'Empordà (<strong>Girona</strong>). A <strong>DRAPS</strong> pots comprar teles a metres de tota mena de teixits: <i>bàsics, vestits, carnaval, llar, patchwork, senyeres, estelades...</i>
+                Més de 40 anys venent <strong>teles i teixits</strong> a la Bisbal d'Empordà (<strong>Girona</strong>). A <strong>DRAPS</strong> pots comprar teles a metres de tota mena de teixits: <i>bàsics, vestits, carnaval, llar, patchwork, senyeres, estelades...</i>
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {categories.map((category, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className="group bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300"
                 >
                   <div className="flex flex-col items-center text-center mb-4">
@@ -187,7 +194,7 @@ export default function HomePage() {
                 <p className="text-gray-600 mb-6">
                   Si voleu fer qualsevol consulta o demanar-nos més informació, empleneu el formulari següent i us contestarem al més aviat possible, gràcies.
                 </p>
-                <form action={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} ref={formRef} className="space-y-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                       Nom / Cognom
