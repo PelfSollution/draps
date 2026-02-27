@@ -18,11 +18,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://draps.cat'
   },
-  icons: {
-    icon: '/app/favicon.ico',
-    shortcut: '/app/favicon.ico',
-    apple: '/app/favicon.ico',
-  }
 }
 
 export default function RootLayout({
@@ -32,11 +27,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ca">
-      <head>
-        <link rel="icon" href="/app/favicon.ico" />
-        <link rel="shortcut icon" href="/app/favicon.ico" />
-        <link rel="apple-touch-icon" href="/app/favicon.ico" />
-      </head>
       <body className={inter.className}>
         {children}
         <Script
