@@ -17,22 +17,26 @@ import { FaHeart } from 'react-icons/fa'
 
 const categories = [
   {
-    icon: <GiSewingMachine className="w-12 h-12 text-teal-500" />,
+    icon: <GiSewingMachine className="w-12 h-12 text-[#2c5f53] transition-colors duration-300" />,
+    animationClass: "group-hover:animate-rock",
     title: "VESTIR I BÀSICS",
     description: "A DRAPS es pot trobar tota mena de teixits de diferents qualitats i en una extensa gamma de colors per confeccionar tota classe de peces de roba (punt, infantil, llanes, quadres escocesos, entreteles, vichy, folre...)."
   },
   {
-    icon: <GiDramaMasks className="w-12 h-12 text-teal-500" />,
+    icon: <GiDramaMasks className="w-12 h-12 text-[#2c5f53] transition-colors duration-300" />,
+    animationClass: "group-hover:animate-swing",
     title: "CARNAVAL, ESPECTACLES I FANTASIES",
     description: "Els teixits per carnaval i espectacles són una altra de les nostres especialitats (bàsics, fantasia, flamenques, blondes, tuls, malles, pèl, estampats...)."
   },
   {
-    icon: <GiSofa className="w-12 h-12 text-teal-500" />,
+    icon: <GiSofa className="w-12 h-12 text-[#2c5f53] transition-colors duration-300" />,
+    animationClass: "group-hover:animate-bounce-gentle",
     title: "LLAR I DECORACIÓ",
     description: "Teixits per la llar i decoracions (teles per la llar, lonetes per fundes de sofà i coixins...)."
   },
   {
-    icon: <GiSewingString className="w-12 h-12 text-teal-500" />,
+    icon: <GiSewingString className="w-12 h-12 text-[#2c5f53] transition-colors duration-300" />,
+    animationClass: "group-hover:animate-spin-slow",
     title: "MANUALITATS",
     description: "Teixits de cotó especials i Fliselina per fer manualitats de Patchwork, tela rústica (saca, arpillera), panamà per brodar amb punt de creu, buata, feltre..."
   }
@@ -121,7 +125,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="qui-som" aria-label="Qui som - Sobre DRAPS" className="py-16 bg-gray-50">
+        <section id="qui-som" aria-label="Qui som - Sobre DRAPS" className="py-16 bg-[#f7f5f0]">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="sr-only">Qui som</h2>
@@ -141,15 +145,17 @@ export default function HomePage() {
               {categories.map((category, index) => (
                 <div
                   key={index}
-                  className="group bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300"
+                  className="group relative bg-[#fdfaf5] p-6 sm:p-8 rounded-sm shadow-sm hover:shadow-md transition-all duration-300 border-2 border-dashed border-[#d8ccbb] hover:border-[#b8a68c]"
                 >
-                  <div className="flex flex-col items-center text-center mb-4">
-                    <div className="mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                  <div className="absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(45deg, #b8a68c 25%, transparent 25%, transparent 75%, #b8a68c 75%, #b8a68c), repeating-linear-gradient(45deg, #b8a68c 25%, #fdfaf5 25%, #fdfaf5 75%, #b8a68c 75%, #b8a68c)", backgroundPosition: "0 0, 10px 10px", backgroundSize: "20px 20px" }}></div>
+
+                  <div className="flex flex-col items-center text-center mb-5 relative z-10">
+                    <div className={`mb-5 p-4 rounded-full bg-[#f4ebd8] group-hover:bg-[#ebdccc] transition-colors duration-300 ${category.animationClass} transform-gpu`}>
                       {category.icon}
                     </div>
-                    <h3 className="text-xl font-semibold">{category.title}</h3>
+                    <h3 className="text-xl font-serif font-bold text-[#4a3f35] uppercase tracking-wide">{category.title}</h3>
                   </div>
-                  <p className="text-gray-600">{category.description}</p>
+                  <p className="text-[#5c544d] leading-relaxed relative z-10">{category.description}</p>
                 </div>
               ))}
             </div>

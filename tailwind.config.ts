@@ -47,6 +47,34 @@ module.exports = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      keyframes: {
+        'rock': {
+          '0%, 100%': { transform: 'rotate(-5deg)' },
+          '50%': { transform: 'rotate(5deg)' },
+        },
+        'swing': {
+          '0%': { transform: 'rotate(0deg)' },
+          '20%': { transform: 'rotate(10deg)' },
+          '40%': { transform: 'rotate(-10deg)' },
+          '60%': { transform: 'rotate(5deg)' },
+          '80%': { transform: 'rotate(-5deg)' },
+          '100%': { transform: 'rotate(0deg)' },
+        },
+        'bounce-gentle': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-5px)' },
+        },
+        'spin-slow': {
+          from: { transform: 'rotate(0deg)' },
+          to: { transform: 'rotate(360deg)' },
+        },
+      },
+      animation: {
+        'rock': 'rock 0.5s ease-in-out infinite',
+        'swing': 'swing 2s ease-in-out infinite',
+        'bounce-gentle': 'bounce-gentle 1s ease-in-out infinite',
+        'spin-slow': 'spin-slow 4s linear infinite',
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
