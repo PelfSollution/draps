@@ -118,8 +118,8 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <div className="text-center px-4">
               <div className="border border-white/50 px-6 md:px-12 py-6 md:py-8 rounded-lg backdrop-blur-sm">
-                <h1 className="text-white text-3xl sm:text-4xl md:text-7xl font-bold mb-2 md:mb-4">Roba i Teles a metres</h1>
-                <p className="text-white text-xl sm:text-2xl md:text-3xl">La Bisbal d&#39;Empordà</p>
+                <h1 className="text-white text-4xl sm:text-5xl md:text-7xl font-bold font-serif mb-2 md:mb-4 tracking-wider uppercase">Roba i Teles a metres</h1>
+                <p className="text-white text-xl sm:text-2xl md:text-3xl font-serif italic">La Bisbal d&#39;Empordà</p>
               </div>
             </div>
           </div>
@@ -132,12 +132,12 @@ export default function HomePage() {
               <Image
                 src="/img-draps.png"
                 alt="Il·lustració de costura i confecció - DRAPS botiga de teles"
-                width={200}
-                height={200}
-                className="mx-auto mb-6 rounded-full"
+                width={280}
+                height={280}
+                className="mx-auto mb-8 rounded-full shadow-sm border-4 border-[#fdfaf5]"
               />
 
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <p className="text-xl md:text-2xl text-[#4a3f35] font-serif leading-relaxed max-w-4xl mx-auto">
                 Més de 40 anys venent <strong>teles i teixits</strong> a la Bisbal d&#39;Empordà (<strong>Girona</strong>). A <strong>DRAPS</strong> pots comprar teles a metres de tota mena de teixits: <em>bàsics, vestits, carnaval, llar, patchwork, senyeres, estelades...</em>
               </p>
             </div>
@@ -165,41 +165,41 @@ export default function HomePage() {
         <section aria-label="La Bisbal d'Empordà" className="relative bg-cover bg-center h-[50vh]" style={{ backgroundImage: "url('/foto-bisbal.jpg')" }}>
           <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
             <div className="border border-white/50 px-6 md:px-12 py-6 md:py-8 rounded-lg backdrop-blur-sm mx-4">
-              <h2 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold">La Bisbal d&#39;Empordà</h2>
+              <h2 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold font-serif tracking-widest uppercase">La Bisbal d&#39;Empordà</h2>
             </div>
           </div>
         </section>
 
-        <section id="contacte" aria-label="Contacte i formulari" className="py-16 bg-white">
+        <section id="contacte" aria-label="Contacte i formulari" className="py-16 bg-[#fdfaf5] border-t-2 border-dashed border-[#d8ccbb]">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <div>
-                <h2 className="text-3xl font-bold mb-6">Contacte</h2>
-                <p className="mb-6">
+                <h2 className="text-3xl font-bold font-serif text-[#4a3f35] uppercase tracking-wide mb-6">Contacte</h2>
+                <p className="mb-6 text-[#5c544d] text-lg">
                   Si voleu més informació podeu contactar amb nosaltres a través de telèfon o el formulari de contacte.
                 </p>
                 <div className="space-y-4">
-                  <div className="text-xl font-semibold text-teal-600 mb-4">
+                  <div className="text-xl font-bold font-serif text-[#2c5f53] mb-4 tracking-wide">
                     CARME ROS NOGUER
                   </div>
-                  <div className="flex items-center">
-                    <Phone className="w-6 h-6 text-teal-500 mr-2" />
-                    <span>+34 627900477</span>
+                  <div className="flex items-center text-[#4a3f35]">
+                    <Phone className="w-6 h-6 text-[#2c5f53] mr-3" />
+                    <span className="text-lg">+34 627900477</span>
                   </div>
-                  <div className="flex items-center">
-                    <Mail className="w-6 h-6 text-teal-500 mr-2" />
-                    <span>info@draps.cat</span>
+                  <div className="flex items-center text-[#4a3f35]">
+                    <Mail className="w-6 h-6 text-[#2c5f53] mr-3" />
+                    <span className="text-lg">info@draps.cat</span>
                   </div>
-                  <div className="flex items-start">
-                    <MapPin className="w-6 h-6 text-teal-500 mr-2 mt-1" />
-                    <div>
+                  <div className="flex items-start text-[#4a3f35]">
+                    <MapPin className="w-6 h-6 text-[#2c5f53] mr-3 mt-1" />
+                    <div className="text-lg">
                       <p>Carrer Cavallers, nº 12</p>
                       <p>17100, La Bisbal d'Empordà, Girona</p>
                     </div>
                   </div>
-                  <div className="flex items-start">
-                    <Clock className="w-6 h-6 text-teal-500 mr-2 mt-1" />
-                    <div>
+                  <div className="flex items-start text-[#4a3f35]">
+                    <Clock className="w-6 h-6 text-[#2c5f53] mr-3 mt-1" />
+                    <div className="text-lg">
                       <p>De Dilluns a Dissabte</p>
                       <p>Matí: 9:00h - 13:00h (Dilluns matí tancat)</p>
                       <p>Tarda: 17:00 - 20:30</p>
@@ -208,8 +208,8 @@ export default function HomePage() {
                 </div>
               </div>
               <div>
-                <h2 className="text-3xl font-bold mb-6">Formulari de contacte</h2>
-                <p className="text-gray-600 mb-6">
+                <h2 className="text-3xl font-bold font-serif text-[#4a3f35] uppercase tracking-wide mb-6">Formulari de contacte</h2>
+                <p className="text-[#5c544d] text-lg mb-6">
                   Si voleu fer qualsevol consulta o demanar-nos més informació, empleneu el formulari següent i us contestarem al més aviat possible, gràcies.
                 </p>
                 <form onSubmit={handleSubmit} ref={formRef} className="space-y-4">
@@ -231,14 +231,14 @@ export default function HomePage() {
                     </label>
                     <Textarea id="message" name="message" placeholder="La teva consulta" rows={4} required />
                   </div>
-                  <Button type="submit" className="w-full" disabled={isSubmitting}>
+                  <Button type="submit" className="w-full bg-[#2c5f53] hover:bg-[#1f453c] text-white text-lg font-serif tracking-wide py-6" disabled={isSubmitting}>
                     {isSubmitting ? (
                       <>
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        <Loader2 className="mr-2 h-5 w-5 animate-spin" />
                         Enviant...
                       </>
                     ) : (
-                      'Enviar'
+                      'Enviar Missatge'
                     )}
                   </Button>
                 </form>
@@ -268,11 +268,11 @@ export default function HomePage() {
         </section>
       </main>
 
-      <footer className="bg-white text-center py-8" role="contentinfo">
-        <p className="text-gray-600 text-3xl sm:text-4xl md:text-7xl font-bold flex items-center justify-center gap-4">
-          Estimem <FaHeart className="text-red-500 animate-pulse" aria-label="cor" /> Tall i Confecció
+      <footer className="bg-[#2d2824] text-center py-12" role="contentinfo">
+        <p className="text-[#d8ccbb] text-3xl sm:text-4xl md:text-6xl font-bold font-serif flex items-center justify-center gap-4">
+          Estimem <FaHeart className="text-[#8b3a3a] animate-pulse" aria-label="cor" /> Tall i Confecció
         </p>
-        <p className="text-gray-400 text-sm mt-4">© {new Date().getFullYear()} DRAPS - Teles i Teixits. Tots els drets reservats.</p>
+        <p className="text-[#8e8579] text-sm mt-8">© {new Date().getFullYear()} DRAPS - Teles i Teixits. Tots els drets reservats.</p>
       </footer>
     </div>
   )
