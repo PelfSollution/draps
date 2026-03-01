@@ -13,8 +13,24 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from "@/components/ui/sheet"
+import { motion } from "framer-motion"
 import Image from 'next/image'
 import { FaHeart } from 'react-icons/fa'
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 15 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15
+    }
+  }
+};
 
 const categories = [
   {
@@ -149,18 +165,29 @@ export default function HomePage() {
       <main className="flex-grow">
         <section id="inicio" aria-label="Presentació de DRAPS" className="relative h-[70vh] bg-cover bg-center" style={{ backgroundImage: "url('/img-draps-2.png?height=700&width=1200')" }}>
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-            <div className="text-center px-4">
+            <motion.div
+              className="text-center px-4"
+              initial="hidden"
+              animate="visible"
+              variants={fadeInUp}
+            >
               <div className="border border-white/50 px-6 md:px-12 py-6 md:py-8 rounded-lg backdrop-blur-sm">
                 <h1 className="text-white text-4xl sm:text-5xl md:text-7xl font-bold font-serif mb-2 md:mb-4 tracking-wider uppercase">Roba i Teles a metres</h1>
                 <p className="text-white text-xl sm:text-2xl md:text-3xl font-serif italic">La Bisbal d&#39;Empordà</p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
 
-        <section id="qui-som" aria-label="Qui som - Sobre DRAPS" className="py-16 bg-[#f7f5f0]">
+        <section id="qui-som" aria-label="Qui som - Sobre DRAPS" className="py-16 bg-[#f7f5f0] overflow-hidden">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
+            <motion.div
+              className="text-center mb-12"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={fadeInUp}
+            >
               <h2 className="sr-only">Qui som</h2>
               <Image
                 src="/img-draps.png"
@@ -173,11 +200,18 @@ export default function HomePage() {
               <p className="text-xl md:text-2xl text-[#4a3f35] font-serif leading-relaxed max-w-4xl mx-auto">
                 Més de 40 anys venent <strong>teles i teixits</strong> a la Bisbal d&#39;Empordà (<strong>Girona</strong>). A <strong>DRAPS</strong> pots comprar teles a metres de tota mena de teixits: <em>bàsics, vestits, carnaval, llar, patchwork, senyeres, estelades...</em>
               </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            </motion.div>
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={staggerContainer}
+            >
               {categories.map((category, index) => (
-                <div
+                <motion.div
                   key={index}
+                  variants={fadeInUp}
                   className="group relative bg-[#fdfaf5] p-6 sm:p-8 rounded-sm shadow-sm hover:shadow-md transition-all duration-300 border-2 border-dashed border-[#d8ccbb] hover:border-[#b8a68c]"
                 >
                   <div className="absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none" style={{ backgroundImage: "repeating-linear-gradient(45deg, #b8a68c 25%, transparent 25%, transparent 75%, #b8a68c 75%, #b8a68c), repeating-linear-gradient(45deg, #b8a68c 25%, #fdfaf5 25%, #fdfaf5 75%, #b8a68c 75%, #b8a68c)", backgroundPosition: "0 0, 10px 10px", backgroundSize: "20px 20px" }}></div>
@@ -189,24 +223,35 @@ export default function HomePage() {
                     <h3 className="text-xl font-serif font-bold text-[#4a3f35] uppercase tracking-wide">{category.title}</h3>
                   </div>
                   <p className="text-[#5c544d] leading-relaxed relative z-10">{category.description}</p>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
         <section aria-label="La Bisbal d'Empordà" className="relative bg-cover bg-center h-[50vh]" style={{ backgroundImage: "url('/foto-bisbal.jpg')" }}>
-          <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-            <div className="border border-white/50 px-6 md:px-12 py-6 md:py-8 rounded-lg backdrop-blur-sm mx-4">
+          <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center overflow-hidden">
+            <motion.div
+              className="border border-white/50 px-6 md:px-12 py-6 md:py-8 rounded-lg backdrop-blur-sm mx-4"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
               <h2 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold font-serif tracking-widest uppercase">La Bisbal d&#39;Empordà</h2>
-            </div>
+            </motion.div>
           </div>
         </section>
 
-        <section id="contacte" aria-label="Contacte i formulari" className="py-16 bg-[#fdfaf5] border-t-2 border-dashed border-[#d8ccbb]">
+        <section id="contacte" aria-label="Contacte i formulari" className="py-16 bg-[#fdfaf5] border-t-2 border-dashed border-[#d8ccbb] overflow-hidden">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div>
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true, margin: "-50px" }}
+              >
                 <h2 className="text-3xl font-bold font-serif text-[#4a3f35] uppercase tracking-wide mb-6">Contacte</h2>
                 <p className="mb-6 text-[#5c544d] text-lg">
                   Si voleu més informació podeu contactar amb nosaltres a través de telèfon o el formulari de contacte.
@@ -239,8 +284,13 @@ export default function HomePage() {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true, margin: "-50px" }}
+              >
                 <h2 className="text-3xl font-bold font-serif text-[#4a3f35] uppercase tracking-wide mb-6">Formulari de contacte</h2>
                 <p className="text-[#5c544d] text-lg mb-6">
                   Si voleu fer qualsevol consulta o demanar-nos més informació, empleneu el formulari següent i us contestarem al més aviat possible, gràcies.
@@ -280,7 +330,7 @@ export default function HomePage() {
                     {formStatus.message}
                   </div>
                 )}
-              </div>
+              </motion.div>
             </div>
             <div className="mt-12">
               <h3 className="text-xl font-semibold mb-4">On ens podeu trobar?</h3>
@@ -301,12 +351,19 @@ export default function HomePage() {
         </section>
       </main>
 
-      <footer className="bg-[#2d2824] text-center py-12" role="contentinfo">
-        <p className="text-[#d8ccbb] text-3xl sm:text-4xl md:text-6xl font-bold font-serif flex items-center justify-center gap-4">
-          Estimem <FaHeart className="text-[#8b3a3a] animate-pulse" aria-label="cor" /> Tall i Confecció
-        </p>
-        <p className="text-[#8e8579] text-sm mt-8">© {new Date().getFullYear()} DRAPS - Teles i Teixits. Tots els drets reservats.</p>
+      <footer className="bg-[#2d2824] text-center py-12 overflow-hidden" role="contentinfo">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <p className="text-[#d8ccbb] text-3xl sm:text-4xl md:text-6xl font-bold font-serif flex items-center justify-center gap-4">
+            Estimem <FaHeart className="text-[#8b3a3a] animate-pulse" aria-label="cor" /> Tall i Confecció
+          </p>
+          <p className="text-[#8e8579] text-sm mt-8">© {new Date().getFullYear()} DRAPS - Teles i Teixits. Tots els drets reservats.</p>
+        </motion.div>
       </footer>
-    </div>
+    </div >
   )
 }
