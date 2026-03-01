@@ -150,7 +150,7 @@ export default function HomePage() {
         <section id="inicio" aria-label="Presentació de DRAPS" className="relative h-[70vh] bg-cover bg-center" style={{ backgroundImage: "url('/img-draps-2.png?height=700&width=1200')" }}>
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <div className="text-center px-4">
-              <div className="border border-white/50 px-6 md:px-12 py-6 md:py-8 rounded-lg backdrop-blur-sm">
+              <div className="border border-white/50 px-6 md:px-12 py-6 md:py-8 rounded-lg backdrop-blur-sm text-center">
                 <h1 className="text-white text-4xl sm:text-5xl md:text-7xl font-bold font-serif mb-2 md:mb-4 tracking-wider uppercase">Roba i Teles a metres</h1>
                 <p className="text-white text-xl sm:text-2xl md:text-3xl font-serif italic">La Bisbal d&#39;Empordà</p>
               </div>
@@ -197,7 +197,7 @@ export default function HomePage() {
 
         <section aria-label="La Bisbal d'Empordà" className="relative bg-cover bg-center h-[50vh]" style={{ backgroundImage: "url('/foto-bisbal.jpg')" }}>
           <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-            <div className="border border-white/50 px-6 md:px-12 py-6 md:py-8 rounded-lg backdrop-blur-sm mx-4">
+            <div className="border border-white/50 px-6 md:px-12 py-6 md:py-8 rounded-lg backdrop-blur-sm mx-4 text-center">
               <h2 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold font-serif tracking-widest uppercase">La Bisbal d&#39;Empordà</h2>
             </div>
           </div>
@@ -302,8 +302,8 @@ export default function HomePage() {
       </main>
 
       <footer className="bg-[#2d2824] text-center py-12" role="contentinfo">
-        <p className="text-[#d8ccbb] text-3xl sm:text-4xl md:text-6xl font-bold font-serif flex items-center justify-center gap-4">
-          Estimem <FaHeart className="text-[#8b3a3a] animate-pulse" aria-label="cor" /> Tall i Confecció
+        <p className="text-[#d8ccbb] text-3xl sm:text-4xl md:text-6xl font-bold font-serif flex flex-wrap items-center justify-center gap-2 sm:gap-4 px-4 text-center">
+          <span>Estimem</span> <FaHeart className="text-[#8b3a3a] animate-pulse shrink-0" aria-label="cor" /> <span>Tall i Confecció</span>
         </p>
         <p className="text-[#8e8579] text-sm mt-8">© {new Date().getFullYear()} DRAPS - Teles i Teixits. Tots els drets reservats.</p>
       </footer>
