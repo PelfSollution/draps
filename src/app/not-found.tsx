@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 
 export default function NotFound() {
     return (
-        <div className="min-h-[70vh] flex flex-col items-center justify-center bg-[#fdfaf5] text-[#4a3f35] px-4 text-center">
+        <div className="min-h-screen flex flex-col items-center justify-center bg-[#fdfaf5] text-[#4a3f35] px-4 text-center">
             <div className="mb-8 p-6 rounded-full bg-[#f4ebd8] inline-block animate-[spin-slow_6s_linear_infinite]">
                 <Scissors className="w-16 h-16 text-[#2c5f53]" />
             </div>
