@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Script from 'next/script'
+import { FaWhatsapp } from 'react-icons/fa'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -165,6 +166,16 @@ export default function RootLayout({
             />
           </>
         )}
+        <a
+          href="https://wa.me/34627900477"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:shadow-xl hover:scale-110 hover:-translate-y-1 transition-all duration-300 animate-bounce"
+          style={{ animationDuration: '3s' }}
+          aria-label="Contactar per WhatsApp"
+        >
+          <FaWhatsapp className="w-8 h-8" />
+        </a>
       </body>
     </html>
   )

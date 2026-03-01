@@ -30,13 +30,15 @@ Llista de millores pendents per implementar en properes iteracions.
 - Carrusel o grid amb fotos reals de les teles
 - Mostra el producte i dóna més vida a la web
 
-### Pàgina 404
-- Crear `not-found.tsx` amb la marca DRAPS
+### ~~Pàgina 404~~ ✅
+- ~~Crear `not-found.tsx` amb la marca DRAPS~~
+- Fet: Pàgina 404 completada amb estètica artesanal de costura (01/03/2026)
 
 ## 🟢 Prioritat Baixa
 
-### WhatsApp flotant
-- Botó flotant a la cantonada per contacte ràpid
+### ~~WhatsApp flotant~~ ✅
+- ~~Botó flotant a la cantonada per contacte ràpid~~
+- Fet: Afegit a `layout.tsx` perquè surti a tota la web (01/03/2026)
 
 ### Multiidioma (ca/es)
 - Afegir castellà amb `next-intl` per turistes
