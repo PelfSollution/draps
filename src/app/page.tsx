@@ -86,7 +86,7 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <header style={{ backgroundColor: '#30bc9c' }} className="shadow-sm sticky top-0 z-50" role="banner">
+      <header style={{ backgroundColor: '#2c5f53' }} className="shadow-sm sticky top-0 z-50" role="banner">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <Link href="/" aria-label="DRAPS - Pàgina principal">
             <Image
