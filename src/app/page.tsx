@@ -8,7 +8,7 @@ import {
   GiSofa,
   GiSewingString
 } from 'react-icons/gi'
-import { Facebook, Instagram, Phone, Mail, MapPin, Clock } from "lucide-react"
+import { Facebook, Instagram, Phone, Mail, MapPin, Clock, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -47,11 +47,14 @@ const categories = [
 export default function HomePage() {
 
   const [formStatus, setFormStatus] = useState<{ success?: boolean; message?: string } | null>(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const formRef = useRef<HTMLFormElement>(null)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setFormStatus({ message: 'Enviant...' })
+    setIsSubmitting(true)
+    setFormStatus(null)
+
     const formData = new FormData(e.currentTarget)
     formData.append('access_key', '55a8a0c8-3d10-4cc7-9ed2-eba0db285e23')
     formData.append('subject', `Nou missatge de ${formData.get('name')} - DRAPS`)
@@ -71,6 +74,8 @@ export default function HomePage() {
       }
     } catch {
       setFormStatus({ success: false, message: 'Error al enviar el correu. Torna-ho a provar.' })
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -220,7 +225,16 @@ export default function HomePage() {
                     </label>
                     <Textarea id="message" name="message" placeholder="La teva consulta" rows={4} required />
                   </div>
-                  <Button type="submit" className="w-full">Enviar</Button>
+                  <Button type="submit" className="w-full" disabled={isSubmitting}>
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Enviant...
+                      </>
+                    ) : (
+                      'Enviar'
+                    )}
+                  </Button>
                 </form>
                 {formStatus && (
                   <div className={`mt-4 p-4 rounded ${formStatus.success ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>

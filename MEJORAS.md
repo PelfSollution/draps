@@ -9,9 +9,10 @@ Llista de millores pendents per implementar en properes iteracions.
 - ~~El script ja està carregat a `layout.tsx`, només falta l'ID~~
 - Configurat amb ID `G-W960XWETX6` (01/03/2026)
 
-### Feedback visual del formulari
-- Afegir spinner o deshabilitar botó "Enviar" durant l'enviament
-- Evitar doble-click accidental
+### ~~Feedback visual del formulari~~ ✅
+- ~~Afegir spinner o deshabilitar botó "Enviar" durant l'enviament~~
+- ~~Evitar doble-click accidental~~
+- Fet: Spinner afegit amb `Loader2` i botó deshabilitat durant enviament (01/03/2026)
 
 ## 🟡 Prioritat Mitjana
 
