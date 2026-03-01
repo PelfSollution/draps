@@ -8,10 +8,11 @@ import {
   GiSofa,
   GiSewingString
 } from 'react-icons/gi'
-import { Facebook, Instagram, Phone, Mail, MapPin, Clock, Loader2 } from "lucide-react"
+import { Facebook, Instagram, Phone, Mail, MapPin, Clock, Loader2, Menu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from "@/components/ui/sheet"
 import Image from 'next/image'
 import { FaHeart } from 'react-icons/fa'
 
@@ -96,7 +97,8 @@ export default function HomePage() {
               priority
             />
           </Link>
-          <nav aria-label="Navegació principal" className="flex gap-6">
+          {/* Navegació Desktop */}
+          <nav aria-label="Navegació principal d'escriptori" className="hidden md:flex gap-6">
             {[
               ['Qui Som', '#qui-som'],
               ['Contacte', '#contacte']
@@ -110,6 +112,37 @@ export default function HomePage() {
               </a>
             ))}
           </nav>
+
+          {/* Navegació Mòbil */}
+          <div className="md:hidden">
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="text-white hover:bg-teal-600/50 hover:text-white" aria-label="Obrir menú">
+                  <Menu className="h-6 w-6" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="bg-[#fdfaf5] border-l-[#d8ccbb]">
+                <SheetHeader className="mb-8">
+                  <SheetTitle className="font-serif text-2xl text-[#4a3f35] uppercase tracking-wide">Menú</SheetTitle>
+                </SheetHeader>
+                <nav className="flex flex-col gap-6" aria-label="Navegació principal mòbil">
+                  {[
+                    ['La Bisbal', '#inicio'],
+                    ['Qui Som', '#qui-som'],
+                    ['Contacte', '#contacte']
+                  ].map(([label, href]) => (
+                    <a
+                      key={href}
+                      href={href}
+                      className="text-xl font-serif text-[#4a3f35] hover:text-[#2c5f53] transition-colors border-b border-dashed border-[#d8ccbb] pb-2 text-center"
+                    >
+                      {label}
+                    </a>
+                  ))}
+                </nav>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </header>
 

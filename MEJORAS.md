@@ -16,9 +16,10 @@ Llista de millores pendents per implementar en properes iteracions.
 
 ## 🟡 Prioritat Mitjana
 
-### Menú mòbil (hamburguesa)
-- Afegir menú responsive amb `sheet.tsx` (ja existeix el component)
-- Millorar navegació en dispositius petits
+### ~~Menú mòbil (hamburguesa)~~ ✅
+- ~~Afegir menú responsive amb `sheet.tsx` (ja existeix el component)~~
+- ~~Millorar navegació en dispositius petits~~
+- Fet: Afegit menú hamburguesa amb `Sheet` per a mòbils (01/03/2026)
 
 ### Animacions de scroll
 - Fade-in/slide-up amb `framer-motion` al fer scroll
