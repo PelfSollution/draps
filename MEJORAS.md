@@ -21,10 +21,10 @@ Llista de millores pendents per implementar en properes iteracions.
 - ~~Millorar navegació en dispositius petits~~
 - Fet: Afegit menú hamburguesa amb `Sheet` per a mòbils (01/03/2026)
 
-### ~~Animacions de scroll~~ ✅
+### ~~Animacions de scroll~~ ❌
 - ~~Fade-in/slide-up amb `framer-motion` al fer scroll~~
 - ~~Donar vida a les seccions quan apareixen~~
-- Fet: Implementat `motion.div` amb animacions subtils (01/03/2026)
+- Descartat: L'usuari prefereix el comportament normal sense animacions per mantenir-ho simple (01/03/2026)
 
 ### Galeria de fotos
 - Carrusel o grid amb fotos reals de les teles
