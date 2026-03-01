@@ -4,9 +4,10 @@ Llista de millores pendents per implementar en properes iteracions.
 
 ## 🔴 Prioritat Alta
 
-### Google Analytics
-- Configurar `NEXT_PUBLIC_GA_ID` amb un ID de Google Analytics 4
-- El script ja està carregat a `layout.tsx`, només falta l'ID
+### ~~Google Analytics~~ ✅
+- ~~Configurar `NEXT_PUBLIC_GA_ID` amb un ID de Google Analytics 4~~
+- ~~El script ja està carregat a `layout.tsx`, només falta l'ID~~
+- Configurat amb ID `G-W960XWETX6` (01/03/2026)
 
 ### Feedback visual del formulari
 - Afegir spinner o deshabilitar botó "Enviar" durant l'enviament
