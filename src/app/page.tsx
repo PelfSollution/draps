@@ -127,7 +127,7 @@ export default function HomePage() {
                 </SheetHeader>
                 <nav className="flex flex-col gap-6" aria-label="Navegació principal mòbil">
                   {[
-                    ['La Bisbal', '#inicio'],
+                    ['Inici', '#inicio'],
                     ['Qui Som', '#qui-som'],
                     ['Contacte', '#contacte']
                   ].map(([label, href]) => (
